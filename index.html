@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                   url('https://images.unsplash.com/photo-1519681393784-d120267933ba') no-repeat center center/cover;
       height: 100vh;
       display: flex;
@@ -18,12 +18,17 @@
       text-align: center;
     }
 
+    .container {
+      text-align: center;
+    }
+
     .message-box {
       background: rgba(255, 255, 255, 0.1);
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
       max-width: 600px;
+      display: none;
       animation: fadeIn 3s ease-in-out;
     }
 
@@ -38,15 +43,15 @@
       line-height: 1.6;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
     .heart {
       font-size: 50px;
       color: red;
       animation: pulse 1.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     @keyframes pulse {
@@ -54,18 +59,46 @@
       50% {transform: scale(1.2);}
       100% {transform: scale(1);}
     }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff1f50;
+    }
   </style>
 </head>
 <body>
-  <div class="message-box">
-    <h1>To the One I Still Love ❤️</h1>
-    <p>
-      It’s been a year since we’ve been apart,<br>
-      but my heart still beats for you every single day.<br><br>
-      I love you the most, and life feels incomplete without you.<br>
-      No matter what happens, you will always be my forever. 💕
-    </p>
-    <div class="heart">❤</div>
+  <div class="container">
+    <button onclick="playMusic()">💖 Play Music & Show Message 💖</button>
+
+    <div class="message-box" id="msgBox">
+      <h1>To the One I Still Love ❤️</h1>
+      <p>
+        It’s been a year since we’ve been apart,<br>
+        but my heart still beats for you every single day.<br><br>
+        I love you the most, and life feels incomplete without you.<br>
+        No matter what happens, you will always be my forever. 💕
+      </p>
+      <div class="heart">❤</div>
+    </div>
   </div>
+
+  <audio id="bgMusic" src="your-music.mp3"></audio> <!-- Replace with your song -->
+  
+  <script>
+    function playMusic() {
+      document.getElementById("bgMusic").play();
+      document.getElementById("msgBox").style.display = "block";
+    }
+  </script>
 </body>
 </html>
