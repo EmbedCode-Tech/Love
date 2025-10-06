@@ -60,15 +60,18 @@
       100% {transform: scale(1);}
     }
 
-    button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
+    select, button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 20px;
       border: none;
-      border-radius: 30px;
+      margin: 10px;
+    }
+
+    button {
       background: #ff4d6d;
       color: white;
       cursor: pointer;
-      transition: 0.3s;
     }
 
     button:hover {
@@ -78,7 +81,16 @@
 </head>
 <body>
   <div class="container">
-    <button onclick="playMusic()">💖 Play Music & Show Message 💖</button>
+    <h2>Choose a song 🎶</h2>
+    <select id="songList">
+      <option value="https://pagalfree.com/musics/128-Tum%20Hi%20Ho%20-%20Aashiqui%202%20128%20Kbps.mp3">Tum Hi Ho - Aashiqui 2</option>
+      <option value="https://pagalfree.com/musics/128-Jeene%20Laga%20Hoon%20-%20Ramaiya%20Vastavaiya%20128%20Kbps.mp3">Jeene Laga Hoon</option>
+      <option value="https://pagalfree.com/musics/128-Tera%20Ban%20Jaunga%20-%20Kabir%20Singh%20128%20Kbps.mp3">Tera Ban Jaunga</option>
+      <option value="https://pagalfree.com/musics/128-Kesariya%20-%20Brahmastra%20128%20Kbps.mp3">Kesariya</option>
+      <option value="https://pagalfree.com/musics/128-Raabta%20-%20Agent%20Vinod%20128%20Kbps.mp3">Raabta</option>
+    </select>
+    <br>
+    <button onclick="playMusic()">💖 Play & Show Message 💖</button>
 
     <div class="message-box" id="msgBox">
       <h1>To the One I Still Love ❤️</h1>
@@ -92,11 +104,14 @@
     </div>
   </div>
 
-  <audio id="bgMusic" src="your-music.mp3"></audio> <!-- Replace with your song -->
+  <audio id="bgMusic" controls style="display:none;"></audio>
   
   <script>
     function playMusic() {
-      document.getElementById("bgMusic").play();
+      const song = document.getElementById("songList").value;
+      const player = document.getElementById("bgMusic");
+      player.src = song;
+      player.play();
       document.getElementById("msgBox").style.display = "block";
     }
   </script>
