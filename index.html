@@ -77,6 +77,11 @@
     button:hover {
       background: #ff1f50;
     }
+
+    audio {
+      margin-top: 15px;
+      width: 300px;
+    }
   </style>
 </head>
 <body>
@@ -102,10 +107,11 @@
       </p>
       <div class="heart">❤</div>
     </div>
+
+    <!-- Visible audio controls -->
+    <audio id="bgMusic" controls></audio>
   </div>
 
-  <audio id="bgMusic" controls style="display:none;"></audio>
-  
   <script>
     function playMusic() {
       const song = document.getElementById("songList").value;
