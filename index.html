@@ -22,6 +22,15 @@
       text-align: center;
     }
 
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px; /* space between select and button */
+      margin: 20px 0;
+      flex-wrap: wrap; /* makes it responsive on small screens */
+    }
+
     .message-box {
       background: rgba(255, 255, 255, 0.1);
       padding: 40px;
@@ -65,7 +74,6 @@
       font-size: 1rem;
       border-radius: 20px;
       border: none;
-      margin: 10px;
     }
 
     button {
@@ -87,15 +95,19 @@
 <body>
   <div class="container">
     <h2>Choose a song 🎶</h2>
-   <select id="songList">
-  <option value="tum_hi_ho.mp3">Tum Hi Ho - Aashiqui 2</option>
-  <option value="jeene_laga_hoon.mp3">Jeene Laga Hoon</option>
-  <option value="tera_ban_jaunga.mp3">Tera Ban Jaunga</option>
-  <option value="kesariya.mp3">Kesariya</option>
-  <option value="raabta.mp3">Raabta</option>
-</select>
-    <br>
-    <button onclick="playMusic()">💖 Play & Show Message 💖</button>
+    
+    <!-- Controls aligned side by side -->
+    <div class="controls">
+      <select id="songList">
+        <option value="tum_hi_ho.mp3">Tum Hi Ho - Aashiqui 2</option>
+        <option value="jeene_laga_hoon.mp3">Jeene Laga Hoon</option>
+        <option value="tera_ban_jaunga.mp3">Tera Ban Jaunga</option>
+        <option value="kesariya.mp3">Kesariya</option>
+        <option value="raabta.mp3">Raabta</option>
+      </select>
+
+      <button onclick="playMusic()">💖 Play & Show Message 💖</button>
+    </div>
 
     <div class="message-box" id="msgBox">
       <h1>To the One I Still Love ❤️</h1>
@@ -113,19 +125,19 @@
   </div>
 
   <script>
-   function playMusic() {
-  const song = document.getElementById("songList").value;
-  const player = document.getElementById("bgMusic");
-  const msgBox = document.getElementById("msgBox");
+    function playMusic() {
+      const song = document.getElementById("songList").value;
+      const player = document.getElementById("bgMusic");
+      const msgBox = document.getElementById("msgBox");
 
-  player.src = song;
+      player.src = song;
 
-  // Play music and show message once it's loaded
-  player.oncanplaythrough = () => {
-    player.play();
-    msgBox.style.display = "block";
-  };
-}
+      // Play music and show message once it's loaded
+      player.oncanplaythrough = () => {
+        player.play();
+        msgBox.style.display = "block";
+      };
+    }
   </script>
 </body>
 </html>
