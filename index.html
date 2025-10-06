@@ -113,13 +113,19 @@
   </div>
 
   <script>
-    function playMusic() {
-      const song = document.getElementById("songList").value;
-      const player = document.getElementById("bgMusic");
-      player.src = song;
-      player.play();
-      document.getElementById("msgBox").style.display = "block";
-    }
+   function playMusic() {
+  const song = document.getElementById("songList").value;
+  const player = document.getElementById("bgMusic");
+  const msgBox = document.getElementById("msgBox");
+
+  player.src = song;
+
+  // Play music and show message once it's loaded
+  player.oncanplaythrough = () => {
+    player.play();
+    msgBox.style.display = "block";
+  };
+}
   </script>
 </body>
 </html>
