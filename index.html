@@ -26,9 +26,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 15px; /* space between select and button */
+      gap: 15px;
       margin: 20px 0;
-      flex-wrap: wrap; /* makes it responsive on small screens */
+      flex-wrap: wrap;
+    }
+
+    .extra-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     .message-box {
@@ -109,6 +117,11 @@
       <button onclick="playMusic()">💖 Play & Show Message 💖</button>
     </div>
 
+    <div class="extra-buttons">
+      <button onclick="makeCall()">📞 Call</button>
+      <button onclick="showSorry()">🙏 Sorry Message</button>
+    </div>
+
     <div class="message-box" id="msgBox">
       <h1>To the One I Still Love ❤️</h1>
       <p>
@@ -120,6 +133,17 @@
       <div class="heart">❤</div>
     </div>
 
+    <div class="message-box" id="sorryBox">
+      <h1>I'm Sorry 🙏</h1>
+      <p>
+        I know I made mistakes that hurt you,<br>
+        but I truly regret them and want to make things right.<br><br>
+        Please forgive me... 💔<br>
+        You mean the world to me.
+      </p>
+      <div class="heart">💔</div>
+    </div>
+
     <!-- Visible audio controls -->
     <audio id="bgMusic" controls></audio>
   </div>
@@ -129,14 +153,26 @@
       const song = document.getElementById("songList").value;
       const player = document.getElementById("bgMusic");
       const msgBox = document.getElementById("msgBox");
+      const sorryBox = document.getElementById("sorryBox");
 
       player.src = song;
 
-      // Play music and show message once it's loaded
+      // Play music and show love message once it's loaded
       player.oncanplaythrough = () => {
         player.play();
         msgBox.style.display = "block";
+        sorryBox.style.display = "none"; // hide sorry box if visible
       };
+    }
+
+    function makeCall() {
+      // Replace with your number
+      window.location.href = "tel:+919999999999";
+    }
+
+    function showSorry() {
+      document.getElementById("msgBox").style.display = "none";
+      document.getElementById("sorryBox").style.display = "block";
     }
   </script>
 </body>
