@@ -102,3 +102,101 @@
 
     .heart {
       font-size: 50px;
+      color: #ff4444;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes pulse {
+      0% {transform: scale(1);}
+      50% {transform: scale(1.2);}
+      100% {transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- 🎵 Top Section (Fixed) -->
+  <div class="top-section">
+    <h2>Choose a song 🎶</h2>
+    <div class="controls">
+      <select id="songList">
+        <option value="ye_na_punha.mp3">Ye Na Punha</option>
+        <option value="tum_hi_ho.mp3">Tum Hi Ho - Aashiqui 2</option>
+        <option value="dooron_dooron.mp3">Dooron Dooron</option>
+        <option value="tera_ban_jaunga.mp3">Tera Ban Jaunga</option>
+        <option value="kesariya.mp3">Kesariya</option>
+        <option value="raabta.mp3">Raabta</option>
+      </select>
+      <button onclick="playMusic()">💖 Play & Read Message 💖</button>
+    </div>
+
+    <div class="extra-buttons">
+      <button onclick="makeCall()">📞 Call</button>
+      <button onclick="showSorry()">🙏 Sorry Message</button>
+    </div>
+
+    <audio id="bgMusic" controls></audio>
+  </div>
+
+  <!-- 💌 Love Message -->
+  <div class="message-box" id="msgBox">
+    <h1>To the One I Still Love ❤️</h1>
+    <p>
+      I know things have gone wrong between us, and I respect the pain we both carry.<br>
+      But no matter how hard I try, my heart refuses to move on.<br>
+      Every memory of us still feels alive inside me.<br>
+      You’re not just someone I loved — you’re the person who made my world brighter. 💫<br><br>
+      I miss you deeply, and I wish we could talk once more, not to fight, not to blame,<br>
+      but just to feel that connection we had.<br>
+      If there’s even the smallest chance, I want to try again.<br>
+      Because no one can take the place you hold in my heart.<br>
+      Please come back, not just for me, but for us. 💕
+    </p>
+  </div>
+
+  <!-- 🙏 Sorry Message -->
+  <div class="message-box" id="sorryBox">
+    <h1>I'm Sorry 🙏</h1>
+    <p>
+      I know I made mistakes that hurt you,<br>
+      but I truly regret them and want to make things right.<br><br>
+      Please forgive me... 💔<br>
+      You mean the world to me.
+    </p>
+    <div class="heart">💔</div>
+  </div>
+
+  <script>
+    function playMusic() {
+      const song = document.getElementById("songList").value;
+      const player = document.getElementById("bgMusic");
+      const msgBox = document.getElementById("msgBox");
+      const sorryBox = document.getElementById("sorryBox");
+
+      player.src = song;
+      player.oncanplaythrough = () => {
+        player.play();
+        msgBox.style.display = "block";
+        sorryBox.style.display = "none"; 
+        msgBox.scrollIntoView({ behavior: "smooth" });
+      };
+    }
+
+    function makeCall() {
+      window.location.href = "tel:+917066528759";
+    }
+
+    function showSorry() {
+      document.getElementById("msgBox").style.display = "none";
+      document.getElementById("sorryBox").style.display = "block";
+      document.getElementById("sorryBox").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+
+</body>
+</html>
