@@ -19,6 +19,7 @@
                   url('bg.png') center top / cover no-repeat fixed;
       background-attachment: fixed;
       overflow-x: hidden;
+      position: relative;
     }
 
     .container {
@@ -27,7 +28,9 @@
       align-items: center;
       justify-content: flex-start;
       padding-top: 100px;
-      padding-bottom: 100px; /* ensures bg covers message area */
+      padding-bottom: 100px;
+      position: relative;
+      z-index: 2;
     }
 
     .controls {
@@ -133,6 +136,31 @@
       100% {transform: scale(1);}
     }
 
+    /* 🦚 Falling Peacock Feather Effect */
+    .feather {
+      position: fixed;
+      top: -50px;
+      width: 40px;
+      height: 40px;
+      background-image: url('https://i.ibb.co/tsqYccL/peacock-feather.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.8;
+      }
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 1.5rem; }
       h2 { font-size: 1.3rem; }
@@ -217,6 +245,27 @@
       sorryBox.style.display = "block";
       sorryBox.scrollIntoView({ behavior: "smooth", block: "center" });
     }
+
+    /* 🦚 Create Falling Feathers */
+    function createFeather() {
+      const feather = document.createElement('div');
+      feather.classList.add('feather');
+      document.body.appendChild(feather);
+
+      // random position and animation
+      feather.style.left = Math.random() * window.innerWidth + 'px';
+      const duration = Math.random() * 5 + 5; // 5–10s
+      feather.style.animationDuration = duration + 's';
+      feather.style.opacity = Math.random() * 0.8 + 0.2;
+
+      // remove after animation
+      setTimeout(() => {
+        feather.remove();
+      }, duration * 1000);
+    }
+
+    // continuously generate feathers
+    setInterval(createFeather, 300);
   </script>
 </body>
 </html>
