@@ -9,7 +9,7 @@
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                  url('https://images.unsplash.com/photo-1519681393784-d120267933ba') no-repeat center center/cover;
+                  url('https://i.ibb.co/2ZyThVJ/lord-krishna-flute-wallpaper.jpg') no-repeat center center/cover;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -40,29 +40,32 @@
     }
 
     .message-box {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.15);
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
       max-width: 600px;
       display: none;
       animation: fadeIn 3s ease-in-out;
+      backdrop-filter: blur(5px);
     }
 
     h1 {
       font-size: 2.5rem;
       margin-bottom: 20px;
-      color: #ff4d6d;
+      color: #ffd700; /* Golden tone */
+      text-shadow: 0 0 10px #ffcc00;
     }
 
     p {
       font-size: 1.2rem;
       line-height: 1.6;
+      color: #f5f5f5;
     }
 
     .heart {
       font-size: 50px;
-      color: red;
+      color: #ff4444;
       animation: pulse 1.5s infinite;
     }
 
@@ -85,13 +88,16 @@
     }
 
     button {
-      background: #ff4d6d;
+      background: linear-gradient(90deg, #ff4d6d, #ff9966);
       color: white;
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
     }
 
     button:hover {
-      background: #ff1f50;
+      background: linear-gradient(90deg, #ff1f50, #ff7733);
+      transform: scale(1.05);
     }
 
     audio {
@@ -104,10 +110,9 @@
   <div class="container">
     <h2>Choose a song 🎶</h2>
     
-    <!-- Controls aligned side by side -->
     <div class="controls">
       <select id="songList">
-        <option value="ye_na_punha.mp3">ye na punha</option>
+        <option value="ye_na_punha.mp3">Ye Na Punha</option>
         <option value="tum_hi_ho.mp3">Tum Hi Ho - Aashiqui 2</option>
         <option value="dooron_dooron.mp3">Dooron Dooron</option>
         <option value="tera_ban_jaunga.mp3">Tera Ban Jaunga</option>
@@ -126,14 +131,16 @@
     <div class="message-box" id="msgBox">
       <h1>To the One I Still Love ❤️</h1>
       <p>
-      I know things have gone wrong between us, and I respect the pain we both carry. But no matter how hard I try, my heart refuses to move on.
-        Every memory of us still feels alive inside me. You’re not just someone I loved — you’re the person who made my world brighter.<br>
-      I miss you deeply, and I wish we could talk once more, not to fight, not to blame, but just to feel that connection we had. 
-        If there’s even the smallest chance, I want to try again. Because no one can take the place you hold in my heart. 
-        Please come back, not just for me, but for us.<br><br>
-        No matter what happens, you will always be my forever. 💕
+        I know things have gone wrong between us, and I respect the pain we both carry.  
+        But no matter how hard I try, my heart refuses to move on.  
+        Every memory of us still feels alive inside me.  
+        You’re not just someone I loved — you’re the person who made my world brighter. 💫<br><br>
+        I miss you deeply, and I wish we could talk once more, not to fight, not to blame,  
+        but just to feel that connection we had.  
+        If there’s even the smallest chance, I want to try again.  
+        Because no one can take the place you hold in my heart.  
+        Please come back, not just for me, but for *us*. 💕
       </p>
-
     </div>
 
     <div class="message-box" id="sorryBox">
@@ -147,7 +154,6 @@
       <div class="heart">💔</div>
     </div>
 
-    <!-- Visible audio controls -->
     <audio id="bgMusic" controls></audio>
   </div>
 
@@ -159,8 +165,6 @@
       const sorryBox = document.getElementById("sorryBox");
 
       player.src = song;
-
-    
       player.oncanplaythrough = () => {
         player.play();
         msgBox.style.display = "block";
@@ -169,7 +173,6 @@
     }
 
     function makeCall() {
-      
       window.location.href = "tel:+917066528759";
     }
 
