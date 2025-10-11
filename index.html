@@ -10,43 +10,80 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                   url('bg.png') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      min-height: 100vh;
       color: #fff;
       text-align: center;
+      overflow-x: hidden;
     }
 
-    .container {
+    /* 🎵 Top Section */
+    .top-section {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
+      background: rgba(0,0,0,0.4);
+      padding: 20px 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      z-index: 100;
     }
 
-    .controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      margin: 20px 0;
-      flex-wrap: wrap;
+    h2 {
+      margin-bottom: 10px;
+      color: #fff7c0;
+      font-size: 1.5rem;
+    }
+
+    select, button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 20px;
+      border: none;
+    }
+
+    select {
+      color: #333;
+    }
+
+    button {
+      background: linear-gradient(90deg, #ff4d6d, #ff9966);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #ff1f50, #ff7733);
+      transform: scale(1.05);
     }
 
     .extra-buttons {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      margin-top: 15px;
     }
 
+    .extra-buttons button {
+      margin: 5px;
+    }
+
+    audio {
+      margin-top: 15px;
+      width: 300px;
+    }
+
+    /* 💌 Message Boxes */
     .message-box {
       background: rgba(255, 255, 255, 0.15);
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
       max-width: 600px;
+      margin: 200px auto 80px; /* Push down from top */
       display: none;
-      animation: fadeIn 3s ease-in-out;
+      animation: fadeIn 2s ease-in-out;
       backdrop-filter: blur(6px);
     }
 
@@ -65,121 +102,3 @@
 
     .heart {
       font-size: 50px;
-      color: #ff4444;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes pulse {
-      0% {transform: scale(1);}
-      50% {transform: scale(1.2);}
-      100% {transform: scale(1);}
-    }
-
-    select, button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 20px;
-      border: none;
-    }
-
-    button {
-      background: linear-gradient(90deg, #ff4d6d, #ff9966);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: linear-gradient(90deg, #ff1f50, #ff7733);
-      transform: scale(1.05);
-    }
-
-    audio {
-      margin-top: 15px;
-      width: 300px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>Choose a song 🎶</h2>
-    
-    <div class="controls">
-      <select id="songList">
-        <option value="ye_na_punha.mp3">Ye Na Punha</option>
-        <option value="tum_hi_ho.mp3">Tum Hi Ho - Aashiqui 2</option>
-        <option value="dooron_dooron.mp3">Dooron Dooron</option>
-        <option value="tera_ban_jaunga.mp3">Tera Ban Jaunga</option>
-        <option value="kesariya.mp3">Kesariya</option>
-        <option value="raabta.mp3">Raabta</option>
-      </select>
-
-      <button onclick="playMusic()">💖 Play & Read Message 💖</button>
-    </div>
-
-    <div class="extra-buttons">
-      <button onclick="makeCall()">📞 Call</button>
-      <button onclick="showSorry()">🙏 Sorry Message</button>
-    </div>
-
-    <div class="message-box" id="msgBox">
-      <h1>To the One I Still Love ❤️</h1>
-      <p>
-        I know things have gone wrong between us, and I respect the pain we both carry.<br>
-        But no matter how hard I try, my heart refuses to move on.<br>
-        Every memory of us still feels alive inside me.<br>
-        You’re not just someone I loved — you’re the person who made my world brighter. 💫<br><br>
-        I miss you deeply, and I wish we could talk once more, not to fight, not to blame,<br>
-        but just to feel that connection we had.<br>
-        If there’s even the smallest chance, I want to try again.<br>
-        Because no one can take the place you hold in my heart.<br>
-        Please come back, not just for me, but for us. 💕
-      </p>
-    </div>
-
-    <div class="message-box" id="sorryBox">
-      <h1>I'm Sorry 🙏</h1>
-      <p>
-        I know I made mistakes that hurt you,<br>
-        but I truly regret them and want to make things right.<br><br>
-        Please forgive me... 💔<br>
-        You mean the world to me.
-      </p>
-      <div class="heart">💔</div>
-    </div>
-
-    <audio id="bgMusic" controls></audio>
-  </div>
-
-  <script>
-    function playMusic() {
-      const song = document.getElementById("songList").value;
-      const player = document.getElementById("bgMusic");
-      const msgBox = document.getElementById("msgBox");
-      const sorryBox = document.getElementById("sorryBox");
-
-      player.src = song;
-      player.oncanplaythrough = () => {
-        player.play();
-        msgBox.style.display = "block";
-        sorryBox.style.display = "none"; 
-      };
-    }
-
-    function makeCall() {
-      window.location.href = "tel:+917066528759";
-    }
-
-    function showSorry() {
-      document.getElementById("msgBox").style.display = "none";
-      document.getElementById("sorryBox").style.display = "block";
-    }
-  </script>
-</body>
-</html>
