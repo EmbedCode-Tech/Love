@@ -17,8 +17,8 @@
       min-height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)),
                   url('bg.png') center top / cover no-repeat fixed;
+      background-attachment: fixed;
       overflow-x: hidden;
-      position: relative;
     }
 
     .container {
@@ -27,9 +27,7 @@
       align-items: center;
       justify-content: flex-start;
       padding-top: 100px;
-      padding-bottom: 100px;
-      position: relative;
-      z-index: 2;
+      padding-bottom: 100px; /* ensures bg covers message area */
     }
 
     .controls {
@@ -135,28 +133,6 @@
       100% {transform: scale(1);}
     }
 
-    /* 🌟 Star-Shaped Falling Feathers */
-    .feather {
-      position: fixed;
-      top: -50px;
-      width: 25px;
-      height: 25px;
-      background-image: url('feather.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.9;
-      animation: fallSway linear infinite;
-      z-index: 1;
-      pointer-events: none;
-      transform-origin: center;
-    }
-
-    @keyframes fallSway {
-      0% { transform: translateX(0) translateY(0) rotate(0deg) scale(1); opacity: 1; }
-      50% { transform: translateX(var(--sway)) translateY(50vh) rotate(360deg) scale(1.1); opacity: 0.9; }
-      100% { transform: translateX(0) translateY(110vh) rotate(720deg) scale(1.2); opacity: 0.8; }
-    }
-
     @media (max-width: 600px) {
       h1 { font-size: 1.5rem; }
       h2 { font-size: 1.3rem; }
@@ -241,25 +217,6 @@
       sorryBox.style.display = "block";
       sorryBox.scrollIntoView({ behavior: "smooth", block: "center" });
     }
-
-    /* 🌟 Create Falling Star-Shaped Feathers */
-    function createFeather() {
-      const feather = document.createElement('div');
-      feather.classList.add('feather');
-      document.body.appendChild(feather);
-
-      const sway = Math.random() * 50 - 25; // -25px to +25px
-      feather.style.left = Math.random() * window.innerWidth + 'px';
-      feather.style.setProperty('--sway', sway + 'px');
-
-      const duration = Math.random() * 5 + 5; // 5–10s
-      feather.style.animationDuration = duration + 's';
-      feather.style.opacity = Math.random() * 0.8 + 0.2;
-
-      setTimeout(() => { feather.remove(); }, duration * 1000);
-    }
-
-    setInterval(createFeather, 300);
   </script>
 </body>
 </html>
