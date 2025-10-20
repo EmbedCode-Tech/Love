@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Diwali ❤️</title>
+  <title>Happy Diwali Love❤️</title>
   <style>
     * {
       margin: 0;
@@ -17,7 +17,7 @@
       overflow-x: hidden;
     }
 
-    /* --- Diwali Intro Screen --- */
+
     #diwaliScreen {
       position: fixed;
       top: 0;
@@ -71,7 +71,6 @@
       to { opacity: 0; visibility: hidden; }
     }
 
-    /* --- Main Page --- */
     #mainPage {
       display: none;
       min-height: 100vh;
@@ -193,25 +192,26 @@
   </style>
 </head>
 <body>
-  <!-- 🎆 Diwali Intro Screen -->
+
   <div id="diwaliScreen">
     <h1>✨ Happy Diwali ✨</h1>
     <p>May your life shine brighter with love, light & happiness ❤️</p>
     <div class="diya"></div>
   </div>
 
-  <!-- 💖 Main Love Message Page -->
+
   <div id="mainPage">
     <div class="container">
       <div class="controls">
         <h2>Choose a song 🎶</h2>
-        <select id="songList">
-          <option value="kadhi_tu.mp3">Kadhi Tu</option>
-          <option value="tu_hi_re.mp3">Tu Hi Re - Classmates</option>
-          <option value="hi_poli_sajuk_tupatli.mp3">Hi Poli Sajuk Tupatli</option>
-          <option value="premache_pathya.mp3">Premache Pathya</option>
-          <option value="saath_de_tu_mala.mp3">Saath De Tu Mala</option>
-        </select>
+      <select id="songList">
+        <option value="ye_na_punha.mp3">Ye Na Punha</option>
+        <option value="tum_hi_ho.mp3">Tum Hi Ho - Aashiqui 2</option>
+        <option value="dooron_dooron.mp3">Dooron Dooron</option>
+        <option value="tera_ban_jaunga.mp3">Tera Ban Jaunga</option>
+        <option value="kesariya.mp3">Kesariya</option>
+        <option value="raabta.mp3">Raabta</option>
+      </select>
 
         <div class="btn-group">
           <button onclick="playMusic()">💖 Play & Read Message 💖</button>
@@ -251,7 +251,7 @@
   </div>
 
   <script>
-    // Show main page after Diwali animation
+ 
     setTimeout(() => {
       document.getElementById('diwaliScreen').style.display = 'none';
       document.getElementById('mainPage').style.display = 'block';
