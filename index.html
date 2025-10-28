@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Love❤️</title>
+  <title>Love ❤️</title>
   <style>
     * {
       margin: 0;
@@ -17,12 +17,11 @@
       overflow-x: hidden;
     }
 
+    /* 🌸 Main page */
     #mainPage {
-      display: none;
       min-height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)),
                   url('bg.png') center top / cover no-repeat fixed;
-      background-attachment: fixed;
       color: #fff;
       padding-top: 100px;
       padding-bottom: 100px;
@@ -139,25 +138,23 @@
 </head>
 <body>
 
-
-
+  <!-- 💖 Main Love Message Page -->
   <div id="mainPage">
     <div class="container">
       <div class="controls">
         <h2>Choose a song 🎶</h2>
-      <select id="songList">
-        <option value="ye_na_punha.mp3">Ye Na Punha</option>
-        <option value="Sitara.mp3">Sitara</option>
-        <option value="dooron_dooron.mp3">Dooron Dooron</option>
-        <option value="Arz_kiya_hai.mp3">Arz kiya hai</option>
-        <option value="Chand_tu_nabhatla.mp3">Chand tu Nabhatla</option>
-        <option value="Ka_Kalena.mp3">Ka Kalena</option>
-        <option value="Sath_de_tu_mala.mp3">Sath de tu mala</option>
-        <option value="aabhas_ha.mp3">Aabhas Ha</option>
-        <option value="jeene_laga_hoon.mp3">Jeene Laga hoon</option>
-        <option value="tum_hi_ho.mp3">Tum hi ho</option>
-        
-      </select>
+        <select id="songList">
+          <option value="ye_na_punha.mp3">Ye Na Punha</option>
+          <option value="Sitara.mp3">Sitara</option>
+          <option value="dooron_dooron.mp3">Dooron Dooron</option>
+          <option value="Arz_kiya_hai.mp3">Arz Kiya Hai</option>
+          <option value="Chand_tu_nabhatla.mp3">Chand Tu Nabhatla</option>
+          <option value="Ka_Kalena.mp3">Ka Kalena</option>
+          <option value="Sath_de_tu_mala.mp3">Sath De Tu Mala</option>
+          <option value="aabhas_ha.mp3">Aabhas Ha</option>
+          <option value="jeene_laga_hoon.mp3">Jeene Laga Hoon</option>
+          <option value="tum_hi_ho.mp3">Tum Hi Ho</option>
+        </select>
 
         <div class="btn-group">
           <button onclick="playMusic()">💖 Play & Read Message 💖</button>
@@ -186,31 +183,22 @@
       <div class="message-box" id="sorryBox">
         <h1>I'm Sorry 🙏</h1>
         <p>
-         Happy Diwali To you 💕✨
-        माहितीय, मी खूप चुका केल्या, आणि त्यामुळे तुला खूप दुखावलं गेलं 💔
-        पण आजचा मेसेज फक्त एकच कारणासाठी — तुला Wish करायला,
-        कारण तू माझ्या आयुष्याचा सगळ्यात सुंदर भाग आहेस ❤<br>
+         माहितीय, मी खूप चुका केल्या, आणि त्यामुळे तुला खूप दुखावलं गेलं 💔<br>
+         पण आजचा मेसेज फक्त एकच कारणासाठी — तुला Wish करायला,<br>
+         कारण तू माझ्या आयुष्याचा सगळ्यात सुंदर भाग आहेस ❤<br><br>
 
-        तू हसतेस तेव्हा माझं जग उजळून निघतं,
-        तू रुसतेस तेव्हा सगळं काही काळोख वाटतं.
-       आजही तुझ्या आठवणी मनात तशाच जिवंत आहेत...
-       आणि प्रत्येक क्षणी मी तुला miss करतो 💫<br>
+         तू हसतेस तेव्हा माझं जग उजळून निघतं,<br>
+         तू रुसतेस तेव्हा सगळं काही काळोख वाटतं.<br>
+         आजही तुझ्या आठवणी मनात तशाच जिवंत आहेत...<br>
+         आणि प्रत्येक क्षणी मी तुला miss करतो 💫<br><br>
 
-       तुझं असणं म्हणजे माझ्या आयुष्याचं सौंदर्य,
-      आणि तुझ्याशिवाय सगळं अपूर्ण वाटतं…
-      You’re not just someone I loved — you’re my forever feeling. 💞<br>
+         तू नेहमी आनंदी रहा,<br>
+         तुझे सगळे dreams पूर्ण होवोत…<br>
+         आणि लक्षात ठेव — माझ्या हृदयात तुझ्यासाठी जागा आजही तशीच आहे ❤<br><br>
 
-      तू नेहमी आनंदी रहा,
-      तुझे सगळे dreams पूर्ण होवोत…
-      आणि लक्षात ठेव —
-     माझ्या हृदयात तुझ्यासाठी जागा आजही तशीच आहे ❤<br>
-          
-  
-      Your happiness matters to me… always. ❤‍🩹<br>
-                                               
-          Please forgive me... 💔<br>
-          You mean the world to me.
-          
+         Your happiness matters to me… always. ❤‍🩹<br><br>
+         Please forgive me... 💔<br>
+         You mean the world to me.
         </p>
         <div class="heart">💔</div>
       </div>
@@ -218,9 +206,6 @@
   </div>
 
   <script>
- 
-
-
     function playMusic() {
       const song = document.getElementById("songList").value;
       const player = document.getElementById("bgMusic");
